@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="marroncito">#aa9990</color>
+    <color name="marron">#7d6355</color>
+    <color name="negro">#2d2d2d</color>
+    <color name="grisOscuro">#464646</color>
 </resources>

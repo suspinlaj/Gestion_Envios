@@ -54,7 +54,7 @@ class FallingAnimationManager(
         // para que luego se pueda parar con stop()
         generatorJob = scope.launch {
             while (true) { // Bucle infinito
-                delay(3000) // CAda x segundos caen
+                delay(2000) // CAda x segundos caen
                 crearImagenAnimacion() // Crea una imagen
             }
         }
@@ -97,6 +97,12 @@ class FallingAnimationManager(
             // Imagen al azar
             setImageResource(imagenes.random())
 
+            // BAJAR OPACIDAD
+            alpha = 0.8f
+
+            // ROTACIÓN ALEATORIA
+            rotation = Random.nextInt(0, 360).toFloat()
+
             // Crea el posicionamiento random de la imagen
             // número al azar entre 0 y el ancho de la pantalla
             val posicionImagenRandom = Random.nextInt(container.width - itemPixelSize)
@@ -113,7 +119,7 @@ class FallingAnimationManager(
         // destino de la imagen (final de la pantalla)
         val endY = container.height.toFloat()
         // duración de la animación aleatoria
-        val duration = Random.nextLong(8000, 12000)  // BAJAR O AUMENTAR VELOCIDAD
+        val duration = Random.nextLong(6000, 10000)  // BAJAR O AUMENTAR VELOCIDAD
 
         //SI QUIERO LA MISMA VELOCIDAD PARA TODAS LAS IMAGENES
         //val duration = 6000L

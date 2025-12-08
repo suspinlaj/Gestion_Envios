@@ -5,52 +5,44 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EnvioPaquetesPantalla">
+    tools:context=".EnvioPaquetesPantalla"
+    android:background="@drawable/fondo3">
+
+
 
     <EditText
         android:id="@+id/tvRemitente"
-        android:layout_width="331dp"
-        android:layout_height="42dp"
-        android:ems="10"
+        style="@style/EditTextsBase"
         android:inputType="text"
-        android:text="Remitente"
-        android:layout_marginTop="80dp"
+        android:hint="Remitente"
+        android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/tvDestino"
-        android:layout_width="331dp"
-        android:layout_height="42dp"
-        android:ems="10"
+        style="@style/EditTextsBase.EditTexts"
         android:inputType="text"
-        android:text="Destino"
-        android:layout_marginTop="70dp"
+        android:hint="Destino"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRemitente" />
 
     <EditText
         android:id="@+id/tvDimensiones"
-        android:layout_width="195dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Dimensiones"
-        android:layout_marginTop="70dp"
+        style="@style/EditTextsBase.EditTexts"
+        android:inputType="number"
+        android:hint="Dimensiones"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="40dp"
         app:layout_constraintTop_toBottomOf="@+id/tvDestino" />
 
     <EditText
         android:id="@+id/tvPeso"
-        android:layout_width="195dp"
-        android:layout_height="41dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Peso"
-        android:layout_marginTop="70dp"
+        style="@style/EditTextsBase.EditTexts"
+        android:inputType="numberDecimal"
+        android:hint="Peso"
         android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDimensiones" />
@@ -60,20 +52,36 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Asegurado"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         android:layout_marginStart="50dp"
+        android:textSize="20dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/titulo1"
+        android:buttonTint="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPeso"/>
 
     <Button
         android:id="@+id/btnEnviar"
-        style="@style/BotonEnviar"
+        style="@style/BotonBase.Enviar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chbxAsegurado" />
 
     <Button
         android:id="@+id/btnCancelar"
-        style="@style/BotonCancelar"
+        style="@style/BotonBase.Cancelar"
         app:layout_constraintStart_toEndOf="@+id/btnEnviar"
-        app:layout_constraintTop_toBottomOf="@+id/chbxAsegurado"/>
+        app:layout_constraintTop_toBottomOf="@+id/chbxAsegurado" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        style="@style/ImgAtras"
+        android:onClick="onClickAtras"
+        android:background="@android:color/transparent"/>
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:text="Envío de Paquetes"
+        style="@style/TitulosPantallas"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

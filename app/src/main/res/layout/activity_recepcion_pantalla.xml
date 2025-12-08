@@ -5,6 +5,58 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecepcionPantalla">
+    tools:context=".RecepcionPantalla"
+    android:background="@drawable/fondo2">
+
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        style="@style/ImgAtras"
+        android:onClick="onClickAtras"
+        android:background="@android:color/transparent"/>
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:text="Recepción"
+        style="@style/TitulosPantallas"/>
+
+    <TextView
+        android:id="@+id/txt1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/titulo2"
+        android:textSize="27dp"
+        android:text="Se han recibido un total de"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitulo" />
+
+    <TextView
+        android:id="@+id/tvNumero"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="20"
+        android:textColor="@color/white"
+        android:fontFamily="@font/titulo1"
+        android:textSize="70dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt1" />
+
+    <TextView
+        android:id="@+id/txt2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="correos certificados"
+        android:textColor="@color/white"
+        android:fontFamily="@font/titulo2"
+        android:textSize="30dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNumero"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

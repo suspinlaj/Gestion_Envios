@@ -1,20 +1,27 @@
 package com.example.gestionenvios
 
 import android.os.Bundle
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.gestionenvios.databinding.ActivityEnvioPaquetesPantallaBinding
+import com.example.gestionenvios.databinding.ActivityRecepcionPantallaBinding
 
 class EnvioPaquetesPantalla : AppCompatActivity() {
+    private lateinit var binding: ActivityEnvioPaquetesPantallaBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_envio_paquetes_pantalla)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        binding = ActivityEnvioPaquetesPantallaBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+    }
+
+    fun onClickAtras(view : View) {
+        finish()
     }
 }
