@@ -10,7 +10,8 @@ import com.example.gestionenvios.databinding.ActivityRecepcionPantallaBinding
 class RecepcionPantalla : AppCompatActivity() {
     private lateinit var binding: ActivityRecepcionPantallaBinding
 
-    private var listaDatos: ArrayList<String>? = null
+    private var listaDatosPaquete: ArrayList<String>? = null
+    private var listaDatosCorreoCertificado: ArrayList<String>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,7 +20,8 @@ class RecepcionPantalla : AppCompatActivity() {
         binding = ActivityRecepcionPantallaBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        listaDatos = intent.getStringArrayListExtra("datos")
+        listaDatosPaquete = intent.getStringArrayListExtra("datosPaquete")
+        listaDatosCorreoCertificado = intent.getStringArrayListExtra("datosCorreoCertificado")
 
         pantallaOrigen()
     }
@@ -29,6 +31,7 @@ class RecepcionPantalla : AppCompatActivity() {
 
         when(pantalla) {
             "paquete" -> mensajePaquete()
+            "correoCertificado" -> mensajeCorreoCertificado()
         }
     }
 
@@ -38,7 +41,21 @@ class RecepcionPantalla : AppCompatActivity() {
 
         var cadena = ""
 
-        listaDatos?.forEach { texto ->
+        listaDatosPaquete?.forEach { texto ->
+            cadena += texto + "\n"
+        }
+
+        binding.txt1.text = cadena
+
+    }
+
+    fun mensajeCorreoCertificado() {
+        binding.txt2.text = ""
+        binding.tvNumero.text = ""
+
+        var cadena = ""
+
+        listaDatosCorreoCertificado?.forEach { texto ->
             cadena += texto + "\n"
         }
 

@@ -216,7 +216,7 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
         // --- 2. Define el Intent de navegación ---
         val intent = Intent(this, RecepcionPantalla::class.java).apply {
             // añadir extras
-            putExtra("datos", listaDatos)
+            putExtra("datosPaquete", listaDatos)
             putExtra("pantalla", "paquete")
         }
 
