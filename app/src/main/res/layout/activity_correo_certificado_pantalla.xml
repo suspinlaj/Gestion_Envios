@@ -28,23 +28,25 @@
         app:layout_constraintTop_toBottomOf="@+id/tvRemitente2" />
 
     <Spinner
-        android:id="@+id/opcionesTamaño"
+        android:id="@+id/spinnerTamanio"
         android:layout_width="324dp"
         android:layout_height="31dp"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="60dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDestino2"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvDestino2" />
 
     <Button
         android:id="@+id/btnEnviar2"
         style="@style/BotonBase.Enviar"
+        android:onClick="onClickEnviar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDestino2" />
 
     <Button
         android:id="@+id/btnCancelar2"
         style="@style/BotonBase.Cancelar"
+        android:onClick="onClickCancelar"
         app:layout_constraintStart_toEndOf="@+id/btnEnviar2"
         app:layout_constraintTop_toBottomOf="@+id/tvDestino2" />
 

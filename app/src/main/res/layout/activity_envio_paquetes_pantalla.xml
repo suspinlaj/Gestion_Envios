@@ -32,8 +32,8 @@
     <EditText
         android:id="@+id/tvDimensiones"
         style="@style/EditTextsBase.EditTexts"
-        android:inputType="number"
-        android:hint="Dimensiones"
+        android:inputType="text"
+        android:hint="Dimensiones (ej .10x5x10)"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="40dp"
         app:layout_constraintTop_toBottomOf="@+id/tvDestino" />
@@ -42,7 +42,8 @@
         android:id="@+id/tvPeso"
         style="@style/EditTextsBase.EditTexts"
         android:inputType="numberDecimal"
-        android:hint="Peso"
+        android:hint="Peso max 500kg"
+        android:maxLength="3"
         android:layout_marginStart="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvDimensiones" />
@@ -64,12 +65,14 @@
     <Button
         android:id="@+id/btnEnviar"
         style="@style/BotonBase.Enviar"
+        android:onClick="onClickEnviar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chbxAsegurado" />
 
     <Button
         android:id="@+id/btnCancelar"
         style="@style/BotonBase.Cancelar"
+        android:onClick="onClickCancelar"
         app:layout_constraintStart_toEndOf="@+id/btnEnviar"
         app:layout_constraintTop_toBottomOf="@+id/chbxAsegurado" />
 

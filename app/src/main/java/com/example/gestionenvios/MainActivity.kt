@@ -1,10 +1,16 @@
 package com.example.gestionenvios
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
 import androidx.lifecycle.lifecycleScope
 import com.example.gestionenvios.databinding.ActivityMainBinding
@@ -20,8 +26,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        WindowCompat.setDecorFitsSystemWindows(window, false)
 
+        // para que la pantalla sea completa, sin las zonas de botones y barra de tareas
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setSupportActionBar(binding.toolbar)
         animacionPortada()

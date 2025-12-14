@@ -5,7 +5,8 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
-    <style name="Theme.GestionEnvios" parent="Base.Theme.GestionEnvios" />
+    <style name="Theme.GestionEnvios" parent="Base.Theme.GestionEnvios"/>
+
 
     <!-- EDIT TEXT -->
     <style name="EditTextsBase">
@@ -14,7 +15,6 @@
         <item name="fontFamily">@font/titulo1</item>
         <item name="android:textSize">25sp</item>
         <item name="android:ems">10</item>
-        <item name="android:layout_height">wrap_content</item>
         <item name="android:textColor">@color/white</item>
     </style>
 
