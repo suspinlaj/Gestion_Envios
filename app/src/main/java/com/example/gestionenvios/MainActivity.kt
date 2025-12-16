@@ -21,6 +21,8 @@ class MainActivity : AppCompatActivity() {
 
     // Crea un hueco en memoria para el gestor de animaciones para iniciarlo cuando la pantalla esté lista
     private lateinit var animationManager: FallingAnimationManager
+    private var contador = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
         // para que la pantalla sea completa, sin las zonas de botones y barra de tareas
         WindowCompat.setDecorFitsSystemWindows(window, false)
+        contador = intent.getIntExtra("contador", 0)
 
         setSupportActionBar(binding.toolbar)
         animacionPortada()
@@ -44,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         when(item.itemId) {
             R.id.Recepcion -> {
                 val intent = Intent(this, RecepcionPantalla::class.java)
+                intent.putExtra("pantalla", "main")
+                intent.putExtra("contador", contador)
                 startActivity(intent)
                 return true
             }

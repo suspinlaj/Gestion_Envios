@@ -30,6 +30,7 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
     private var listaCamposIncorrectos: MutableList<String> = mutableListOf()
     private lateinit var listaDatos: ArrayList<String>
     val CHANNEL_ID = "mi_canal_principal"
+    private var contador = 0
 
 
     private lateinit var cardView: CardView
@@ -80,15 +81,15 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
         when (tamanioSeleccionado) {
             "Pequeño" -> {
                 tituloCardView.text = "Tamaño Pequeño"
-                descripcionCardView.text = "10x17"
+                descripcionCardView.text = "Dimensiones: 10x17"
             }
             "Mediano" -> {
                 tituloCardView.text = "Tamaño Mediano"
-                descripcionCardView.text = "20x30"
+                descripcionCardView.text = "Dimensiones: 20x30"
             }
             "Grande" -> {
                 tituloCardView.text = "Tamaño Grande"
-                descripcionCardView.text = "40x60"
+                descripcionCardView.text = "Dimensiones: 40x60"
             }
         }
     }
@@ -123,7 +124,7 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
             listaCamposIncorrectos.forEach { texto ->
                 cadena += texto + "\n"
             }
-
+            args.putString("TITULO", "Campos incorrectos")
             args.putString("MENSAJE", cadena)
 
             dialogo.arguments = args
@@ -261,6 +262,7 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
             // añadir extras
             putExtra("datosCorreoCertificado", listaDatos)
             putExtra("pantalla", "correoCertificado")
+            putExtra("contador", contador+1)
         }
 
         // --- 3. Crea la "Pila" (Back Stack) con TaskStackBuilder ---
@@ -275,7 +277,7 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.img1) // ¡Obligatorio!
             .setContentTitle("¡Nuevo Mensaje!")
-            .setContentText("Has recibido una nueva actualización.")
+            .setContentText("Información sobre su correo.")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)

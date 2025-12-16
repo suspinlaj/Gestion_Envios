@@ -30,6 +30,8 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
     val CHANNEL_ID = "mi_canal_principal"
     private var listaCamposIncorrectos: MutableList<String> = mutableListOf()
     private lateinit var listaDatos: ArrayList<String>
+    private var contador = 0
+
 
     // 1. Prepara el "lanzador" para pedir el permiso
     private val requestPermissionLauncher =
@@ -85,19 +87,18 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
     }
 
     fun validarDimension(): Boolean {
-        var correcto = true
 
         val dimensionEntry = binding.tvDimensiones.text.toString().trim()
 
         val partes = dimensionEntry.split("x")
 
         if (partes.size != 3) {
-            correcto = false
+            return false
         }
 
-        val (ancho, alto, largo) = partes.map {
-            it.toIntOrNull() ?: return false
-        }
+        val ancho = partes[0].toIntOrNull() ?: return false
+        val alto = partes[1].toIntOrNull() ?: return false
+        val largo = partes[2].toIntOrNull() ?: return false
 
         // dimensiones minimas
         val minAncho = 10
@@ -110,20 +111,20 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
         val maxLargo = 300
 
         if(ancho < minAncho || alto < minAlto || largo < minLargo) {
-            correcto = false
+            return false
         }
         if(ancho > maxAncho || alto > maxAlto || largo > maxLargo) {
-            correcto = false
+            return false
         }
 
-        return correcto
+        return true
     }
 
     fun onClickEnviar(view : View) {
         comprobarCampos()
         if(listaCamposIncorrectos.isNotEmpty()){
             // Crear diálogo
-            val dialogo = DialogoError()
+          val dialogo = DialogoError()
 
             // mensaje que sale
             val args = Bundle()
@@ -133,7 +134,7 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
             listaCamposIncorrectos.forEach { texto ->
                 cadena += texto + "\n"
             }
-
+            args.putString("TITULO", "Campos incorrectos")
             args.putString("MENSAJE", cadena)
 
             dialogo.arguments = args
@@ -218,6 +219,7 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
             // añadir extras
             putExtra("datosPaquete", listaDatos)
             putExtra("pantalla", "paquete")
+            putExtra("contador", contador)
         }
 
         // --- 3. Crea la "Pila" (Back Stack) con TaskStackBuilder ---
@@ -232,7 +234,7 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
             .setSmallIcon(R.drawable.img1) // ¡Obligatorio!
             .setContentTitle("¡Nuevo Mensaje!")
-            .setContentText("Has recibido una nueva actualización.")
+            .setContentText("Información sobre su paquete.")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
