@@ -8,7 +8,9 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.lifecycleScope
 import com.example.gestionenvios.databinding.ActivityRecepcionPantallaBinding
+import kotlinx.coroutines.launch
 
 class RecepcionPantalla : AppCompatActivity() {
     private lateinit var binding: ActivityRecepcionPantallaBinding
@@ -26,11 +28,11 @@ class RecepcionPantalla : AppCompatActivity() {
 
         listaDatosPaquete = intent.getStringArrayListExtra("datosPaquete")
         listaDatosCorreoCertificado = intent.getStringArrayListExtra("datosCorreoCertificado")
-        contador = intent.getIntExtra("contador", 0)
 
         pantallaOrigen()
         comprobarAsegurado()
     }
+
 
     fun comprobarAsegurado() {
         listaDatosPaquete?.forEach { datos ->
@@ -53,7 +55,14 @@ class RecepcionPantalla : AppCompatActivity() {
     }
 
     fun mensajeMain() {
-        binding.tvNumero.text = contador.toString()
+
+        // coger el número del contador de preferencias
+        lifecycleScope.launch {
+            applicationContext.dataStore.data.collect { preferences ->
+                contador = preferences[CONTADOR_CORREOS] ?: 0
+                binding.tvNumero.text = contador.toString()
+            }
+        }
     }
 
     fun pantallaOrigen() {
@@ -97,7 +106,6 @@ class RecepcionPantalla : AppCompatActivity() {
 
     fun onClickAtras(view : View) {
         val intent = Intent(this, MainActivity::class.java)
-        intent.putExtra("contador", contador)
         startActivity(intent)
     }
 }

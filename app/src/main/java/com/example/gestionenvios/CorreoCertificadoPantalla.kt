@@ -22,7 +22,10 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
+import androidx.datastore.preferences.core.edit
+import androidx.lifecycle.lifecycleScope
 import com.example.gestionenvios.databinding.ActivityCorreoCertificadoPantallaBinding
+import kotlinx.coroutines.launch
 
 class CorreoCertificadoPantalla : AppCompatActivity() {
 
@@ -30,7 +33,6 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
     private var listaCamposIncorrectos: MutableList<String> = mutableListOf()
     private lateinit var listaDatos: ArrayList<String>
     val CHANNEL_ID = "mi_canal_principal"
-    private var contador = 0
 
 
     private lateinit var cardView: CardView
@@ -137,6 +139,14 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
             listaDatos = arrayListOf(binding.tvRemitente2.text.toString(),
                 binding.tvDestino2.text.toString(),
                 binding.spinnerTamanio.selectedItem.toString())
+
+            // guardar el contador a preferencias
+            lifecycleScope.launch {
+                applicationContext.dataStore.edit { preferences ->
+                    val contador = preferences[CONTADOR_CORREOS] ?: 0
+                    preferences[CONTADOR_CORREOS] = contador+1
+                }
+            }
 
             askForNotificationPermission()
             sendNotification()
@@ -262,7 +272,6 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
             // añadir extras
             putExtra("datosCorreoCertificado", listaDatos)
             putExtra("pantalla", "correoCertificado")
-            putExtra("contador", contador+1)
         }
 
         // --- 3. Crea la "Pila" (Back Stack) con TaskStackBuilder ---

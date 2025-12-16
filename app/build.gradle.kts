@@ -51,4 +51,5 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.fragment:fragment-ktx:1.8.9")
     implementation("androidx.cardview:cardview:1.0.0")
+    implementation("androidx.datastore:datastore-preferences-android:1.2.0")
 }

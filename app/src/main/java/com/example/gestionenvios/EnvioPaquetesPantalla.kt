@@ -30,7 +30,6 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
     val CHANNEL_ID = "mi_canal_principal"
     private var listaCamposIncorrectos: MutableList<String> = mutableListOf()
     private lateinit var listaDatos: ArrayList<String>
-    private var contador = 0
 
 
     // 1. Prepara el "lanzador" para pedir el permiso
@@ -219,7 +218,6 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
             // añadir extras
             putExtra("datosPaquete", listaDatos)
             putExtra("pantalla", "paquete")
-            putExtra("contador", contador)
         }
 
         // --- 3. Crea la "Pila" (Back Stack) con TaskStackBuilder ---
