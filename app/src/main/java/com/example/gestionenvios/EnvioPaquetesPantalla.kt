@@ -2,6 +2,7 @@ package com.example.gestionenvios
 
 import DialogoError
 import android.Manifest
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -87,7 +88,7 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
 
     fun validarDimension(): Boolean {
 
-        val dimensionEntry = binding.tvDimensiones.text.toString().trim()
+        val dimensionEntry = binding.tvDimensiones.text.toString().trim().lowercase()
 
         val partes = dimensionEntry.split("x")
 
@@ -143,20 +144,21 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
 
         } else {
 
-            listaDatos = arrayListOf(binding.tvRemitente.text.toString(),
-                binding.tvDestino.text.toString(),
-                binding.tvDimensiones.text.toString(),
-                binding.tvPeso.text.toString())
+            listaDatos = arrayListOf(
+                "Remitente: ${binding.tvRemitente.text}",
+                "Destino: ${binding.tvDestino.text}",
+                "Dimensiones: ${binding.tvDimensiones.text}",
+                "Peso: ${binding.tvPeso.text}"
+            )
 
-            if(binding.chbxAsegurado.isChecked) {
-                listaDatos.add("Asegurado")
-            }else {
-                listaDatos.add("No Asegurado")
+            if (binding.chbxAsegurado.isChecked) {
+                listaDatos.add("Asegurado: Sí")
+            } else {
+                listaDatos.add("Asegurado: No")
             }
 
             askForNotificationPermission()
             sendNotification()
-
         }
     }
 
@@ -173,7 +175,7 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "Canal Principal"
             val descriptionText = "Notificaciones generales de la app"
-            val importance = NotificationManager.IMPORTANCE_DEFAULT
+            val importance = NotificationManager.IMPORTANCE_HIGH
 
             // 1. Define el canal
             val channel = NotificationChannel(CHANNEL_ID, name, importance).apply {
@@ -233,7 +235,7 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
             .setSmallIcon(R.drawable.img1) // ¡Obligatorio!
             .setContentTitle("¡Nuevo Mensaje!")
             .setContentText("Información sobre su paquete.")
-            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+            .setPriority(NotificationCompat.PRIORITY_MAX)
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
 

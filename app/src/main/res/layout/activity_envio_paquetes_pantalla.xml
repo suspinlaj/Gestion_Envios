@@ -22,8 +22,9 @@
 
     <EditText
         android:id="@+id/tvDestino"
-        style="@style/EditTextsBase.EditTexts"
+        style="@style/EditTextsBase"
         android:inputType="text"
+        android:layout_marginTop="60dp"
         android:hint="Destino"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,6 +34,7 @@
         android:id="@+id/tvDimensiones"
         style="@style/EditTextsBase.EditTexts"
         android:inputType="text"
+        android:maxLength="11"
         android:hint="Dimensiones (ej .10x5x10)"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="40dp"
@@ -80,11 +82,13 @@
         android:id="@+id/imageButton"
         style="@style/ImgAtras"
         android:onClick="onClickAtras"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvTitulo"
         android:text="Envío de Paquetes"
-        style="@style/TitulosPantallas"/>
+        style="@style/TitulosPantallas"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

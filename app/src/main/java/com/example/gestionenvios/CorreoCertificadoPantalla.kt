@@ -136,9 +136,9 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
 
         } else {
 
-            listaDatos = arrayListOf(binding.tvRemitente2.text.toString(),
-                binding.tvDestino2.text.toString(),
-                binding.spinnerTamanio.selectedItem.toString())
+            listaDatos = arrayListOf("Remitente: ${binding.tvRemitente2.text}",
+                "Destino: ${binding.tvDestino2.text}",
+                "Tamaño: ${binding.spinnerTamanio.selectedItem}")
 
             // guardar el contador a preferencias
             lifecycleScope.launch {
@@ -203,7 +203,7 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
             R.layout.spinner_selected_item,
             datosSpinner
         ) {
-            // opción "Seleccionar Tamaño" en gris
+            // poner opción "Seleccionar Tamaño" en gris
             override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
                 val view = super.getDropDownView(position, convertView, parent) as TextView
                 if (position == 0) {
@@ -219,7 +219,7 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
         binding.spinnerTamanio.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
-                // 1. cancelar cualquier temporizador
+                // cancelar cualquier temporizador
                 runnableOcultar?.let { binding.root.removeCallbacks(it) }
 
                 if (position == 0) {
@@ -238,7 +238,6 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
                     binding.root.postDelayed(runnableOcultar, 3000)
                 }
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) { }
         }
     }

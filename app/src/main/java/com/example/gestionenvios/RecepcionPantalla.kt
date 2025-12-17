@@ -3,6 +3,7 @@ package com.example.gestionenvios
 import DialogoError
 import android.content.Intent
 import android.os.Bundle
+import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -76,8 +77,12 @@ class RecepcionPantalla : AppCompatActivity() {
     }
 
     fun mensajePaquete() {
-        binding.txt2.text = ""
-        binding.tvNumero.text = ""
+        binding.txt2.visibility = View.GONE
+        binding.tvNumero.visibility = View.GONE
+        binding.txt1.visibility = View.VISIBLE
+
+        // cambiar el tamaño a la tipografía
+        binding.txt1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
 
         var cadena = ""
 
@@ -91,8 +96,12 @@ class RecepcionPantalla : AppCompatActivity() {
 
     fun mensajeCorreoCertificado() {
         mostrarDialogAsegurado()
-        binding.txt2.text = ""
-        binding.tvNumero.text = ""
+        binding.txt2.visibility = View.GONE
+        binding.tvNumero.visibility = View.GONE
+        binding.txt1.visibility = View.VISIBLE
+
+        // cambiar el tamaño a la tipografía
+        binding.txt1.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30f)
 
         var cadena = ""
 

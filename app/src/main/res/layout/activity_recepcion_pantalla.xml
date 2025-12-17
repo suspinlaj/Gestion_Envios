@@ -13,19 +13,22 @@
         android:id="@+id/imageButton"
         style="@style/ImgAtras"
         android:onClick="onClickAtras"
-        android:background="@android:color/transparent"/>
+        android:background="@android:color/transparent"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/tvTitulo"
         android:text="Recepción"
-        style="@style/TitulosPantallas"/>
+        style="@style/TitulosPantallas"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="140dp"
         android:textColor="@color/white"
+        android:lineSpacingExtra="20dp"
         android:fontFamily="@font/titulo2"
         android:textSize="27dp"
         android:text="Se han recibido un total de"
