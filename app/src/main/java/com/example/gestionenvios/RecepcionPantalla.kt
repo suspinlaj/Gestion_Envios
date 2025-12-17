@@ -37,7 +37,7 @@ class RecepcionPantalla : AppCompatActivity() {
 
     fun comprobarAsegurado() {
         listaDatosPaquete?.forEach { datos ->
-            if(datos == "Asegurado") {
+            if(datos == "Asegurado: Sí") {
                 mostrarDialogAsegurado()
             }
         }
