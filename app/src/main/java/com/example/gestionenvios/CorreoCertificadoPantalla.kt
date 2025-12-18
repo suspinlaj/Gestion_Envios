@@ -283,7 +283,7 @@ class CorreoCertificadoPantalla : AppCompatActivity() {
         }
         // --- 4. Construye la Notificación ---
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.img1) // ¡Obligatorio!
+            .setSmallIcon(R.drawable.ic_notificacion) // ¡Obligatorio!
             .setContentTitle("¡Nuevo Mensaje!")
             .setContentText("Información sobre su correo.")
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)

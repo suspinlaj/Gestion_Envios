@@ -232,7 +232,7 @@ class EnvioPaquetesPantalla : AppCompatActivity() {
         }
         // --- 4. Construye la Notificación ---
         val builder = NotificationCompat.Builder(this, CHANNEL_ID)
-            .setSmallIcon(R.drawable.img1) // ¡Obligatorio!
+            .setSmallIcon(R.drawable.ic_notificacion) // ¡Obligatorio!
             .setContentTitle("¡Nuevo Mensaje!")
             .setContentText("Información sobre su paquete.")
             .setPriority(NotificationCompat.PRIORITY_MAX)
