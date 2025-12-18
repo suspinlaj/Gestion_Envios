@@ -8,6 +8,15 @@
     tools:context=".RecepcionPantalla"
     android:background="@drawable/fondo2">
 
+    <ImageView
+        android:id="@+id/personaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/personaje"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ImageButton
         android:id="@+id/imageButton"
