@@ -8,6 +8,7 @@ Desarrollado como práctica para la asignatura de **Programación multimedia y d
 
 ## 🔧 **Funcionalidades**
 
+- **Animación Dinámica de Portada:** La pantalla principal incorpora una animación continua programada donde distintos paquetes y cartas caen de forma aleatoria desde la parte superior hacia la inferior, aportando vida y dinamismo a la interfaz inicial.
 - **Menú de Navegación Dinámico:** Acceso rápido a las distintas secciones de la aplicación mediante un menú superior desplegable.
 - **Panel de Recepción:** Una pantalla de control que contabiliza y muestra visualmente el total de correos certificados recibidos en la sucursal.
 - **Formulario de Envío de Paquetes:** Interfaz de entrada de datos que recoge información clave (Remitente, Destino, Dimensiones y Peso máximo), incluyendo un *checkbox* interactivo para asegurar el envío.
@@ -17,7 +18,7 @@ Desarrollado como práctica para la asignatura de **Programación multimedia y d
 
 - **Lenguaje**: Kotlin
 - **Entorno de pruebas / Emulador**: Medium Phone
-- **Enfoque destacado**: Manejo de inputs de texto, validación visual de formularios y navegación entre vistas.
+- **Enfoque destacado**: Manejo de inputs de texto, validación visual de formularios, navegación entre vistas y programación de animaciones aleatorias.
 
 ## ⚙️ **Estado del proyecto**
 
