@@ -22,7 +22,7 @@ Desarrollado como práctica para la asignatura de **Programación multimedia y d
 
 ## ⚙️ **Estado del proyecto**
 
-Finalizado. Proyecto educativo completado con sus pantallas de gestión y diseño UI/UX totalmente implementados.
+Finalizado. Proyecto educativo completado con sus pantallas de gestión y diseño UI/UX totalmente implementados
 
 <br><br><br>
 <p align="center">
