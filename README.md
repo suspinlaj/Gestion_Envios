@@ -1,4 +1,4 @@
-# GoPack: Gestión de Envíos ✉
+# GoPack: Gestión de Envíos ⌯⌲
 
 Aplicación móvil diseñada para la gestión de paquetería y correo certificado. Bajo el lema *"Gestiona, envía, relájate"*, la app cuenta con una mascota propia que guía al usuario, aportando un toque visual único y divertido a una herramienta de gestión tradicional.
 
